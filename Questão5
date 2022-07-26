@@ -1,5 +1,5 @@
 /*
- * AndrÈ Kaled Duarte - Quest„o 5 de String
+ * Andr√© Kaled Duarte - Quest√£o 5 de String
  * Data: 20/07/2022 6:00
  * */
 import java.util.Scanner;
@@ -10,7 +10,7 @@ public class RemoveEspaco {
 	Scanner s = new Scanner(System.in);
 	System.out.print("Digite algo: ");
 	String algo = s.nextLine();
-	System.out.println("Removendo os espaÁos adicionais...");
+	System.out.println("Removendo os espa√ßos adicionais...");
 	String algoSemEspaco = "";
 	for(int i = 0; i < algo.length()-1; i++){
 		if(algo.charAt(i)==' '&&algo.charAt(i+1)==' '){
@@ -21,7 +21,7 @@ public class RemoveEspaco {
 	}
 	algoSemEspaco += algo.charAt(algo.length()-1);
 	algoSemEspaco = algoSemEspaco.trim();
-	System.out.println("EspaÁos adicionais removidos!\nResultado:" +algoSemEspaco);
+	System.out.println("Espa√ßos adicionais removidos!\nResultado:" +algoSemEspaco);
 	}
 
 }
