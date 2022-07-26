@@ -1,1 +1,2 @@
-System.out.println("Olá, seja bem-vindo! \nAqui aprendemos Java e Orientação a Objetos através de listas de exercícios c:");
+# Olá, seja bem-vindo! 
+# Aqui aprendemos Java e Orientação a Objetos através de listas de exercícios c:
