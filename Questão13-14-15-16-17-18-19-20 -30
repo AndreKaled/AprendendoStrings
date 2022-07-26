@@ -1,66 +1,66 @@
 /*
- * AndrÈ Kaled Duarte - Questıes 13, 14, 15, 16, 17, 18, 19, 20 e 30
- * Data de publicaÁ„o: 14/07/2022 
+ * Andr√© Kaled Duarte - Quest√µes 13, 14, 15, 16, 17, 18, 19, 20 e 30
+ * Data de publica√ß√£o: 14/07/2022 
  * obs: foi realizado antes da data mas completado no mesmo.
  * */
 public class StringUtils {
 	
-	// Quest„o 12
+	// Quest√£o 12
 	public static String desacentua(String palavra) {
 		String palavraNova = palavra;
-		palavraNova = palavraNova.replace('Á','c');
-		palavraNova = palavraNova.replace('«','C');
-		palavraNova = palavraNova.replace('„','a');
-		palavraNova = palavraNova.replace('√','A');
-		palavraNova = palavraNova.replace('·','a');
-		palavraNova = palavraNova.replace('¡','A');
-		palavraNova = palavraNova.replace('‡','a');
-		palavraNova = palavraNova.replace('¿','A');
-		palavraNova = palavraNova.replace('‚','a');
-		palavraNova = palavraNova.replace('¬','A');
-		palavraNova = palavraNova.replace('È','e');
-		palavraNova = palavraNova.replace('…','E');
-		palavraNova = palavraNova.replace('Ë','e');
-		palavraNova = palavraNova.replace('»','E');
-		palavraNova = palavraNova.replace('Í','e');
-		palavraNova = palavraNova.replace(' ','E');
-		palavraNova = palavraNova.replace('Ì','i');
-		palavraNova = palavraNova.replace('Õ','I');
-		palavraNova = palavraNova.replace('Ï','i');
-		palavraNova = palavraNova.replace('Ã','I');
-		palavraNova = palavraNova.replace('Ó','i');
-		palavraNova = palavraNova.replace('Œ','I');
-		palavraNova = palavraNova.replace('ı','o');
-		palavraNova = palavraNova.replace('’','O');
-		palavraNova = palavraNova.replace('Ù','o');
-		palavraNova = palavraNova.replace('‘','O');
-		palavraNova = palavraNova.replace('Û','o');
-		palavraNova = palavraNova.replace('”','O');
-		palavraNova = palavraNova.replace('Ú','o');
-		palavraNova = palavraNova.replace('“','O');
-		palavraNova = palavraNova.replace('˚','u');
-		palavraNova = palavraNova.replace('€','U');
-		palavraNova = palavraNova.replace('˙','u');
-		palavraNova = palavraNova.replace('⁄','U');
-		palavraNova = palavraNova.replace('˘','u');
-		palavraNova = palavraNova.replace('Ÿ','U');
-		palavraNova = palavraNova.replace('‰','a');
-		palavraNova = palavraNova.replace('Î','e');
-		palavraNova = palavraNova.replace('Ô','i');
-		palavraNova = palavraNova.replace('ˆ','o');
-		palavraNova = palavraNova.replace('¸','u');
-		palavraNova = palavraNova.replace('ƒ','A');
-		palavraNova = palavraNova.replace('À','E');
-		palavraNova = palavraNova.replace('œ','I');
-		palavraNova = palavraNova.replace('÷','O');
-		palavraNova = palavraNova.replace('‹','U');
-		palavraNova = palavraNova.replace('Ò','n');
-		palavraNova = palavraNova.replace('—','N');
+		palavraNova = palavraNova.replace('√ß','c');
+		palavraNova = palavraNova.replace('√á','C');
+		palavraNova = palavraNova.replace('√£','a');
+		palavraNova = palavraNova.replace('√É','A');
+		palavraNova = palavraNova.replace('√°','a');
+		palavraNova = palavraNova.replace('√Å','A');
+		palavraNova = palavraNova.replace('√†','a');
+		palavraNova = palavraNova.replace('√Ä','A');
+		palavraNova = palavraNova.replace('√¢','a');
+		palavraNova = palavraNova.replace('√Ç','A');
+		palavraNova = palavraNova.replace('√©','e');
+		palavraNova = palavraNova.replace('√â','E');
+		palavraNova = palavraNova.replace('√®','e');
+		palavraNova = palavraNova.replace('√à','E');
+		palavraNova = palavraNova.replace('√™','e');
+		palavraNova = palavraNova.replace('√ä','E');
+		palavraNova = palavraNova.replace('√≠','i');
+		palavraNova = palavraNova.replace('√ç','I');
+		palavraNova = palavraNova.replace('√¨','i');
+		palavraNova = palavraNova.replace('√å','I');
+		palavraNova = palavraNova.replace('√Æ','i');
+		palavraNova = palavraNova.replace('√é','I');
+		palavraNova = palavraNova.replace('√µ','o');
+		palavraNova = palavraNova.replace('√ï','O');
+		palavraNova = palavraNova.replace('√¥','o');
+		palavraNova = palavraNova.replace('√î','O');
+		palavraNova = palavraNova.replace('√≥','o');
+		palavraNova = palavraNova.replace('√ì','O');
+		palavraNova = palavraNova.replace('√≤','o');
+		palavraNova = palavraNova.replace('√í','O');
+		palavraNova = palavraNova.replace('√ª','u');
+		palavraNova = palavraNova.replace('√õ','U');
+		palavraNova = palavraNova.replace('√∫','u');
+		palavraNova = palavraNova.replace('√ö','U');
+		palavraNova = palavraNova.replace('√π','u');
+		palavraNova = palavraNova.replace('√ô','U');
+		palavraNova = palavraNova.replace('√§','a');
+		palavraNova = palavraNova.replace('√´','e');
+		palavraNova = palavraNova.replace('√Ø','i');
+		palavraNova = palavraNova.replace('√∂','o');
+		palavraNova = palavraNova.replace('√º','u');
+		palavraNova = palavraNova.replace('√Ñ','A');
+		palavraNova = palavraNova.replace('√ã','E');
+		palavraNova = palavraNova.replace('√è','I');
+		palavraNova = palavraNova.replace('√ñ','O');
+		palavraNova = palavraNova.replace('√ú','U');
+		palavraNova = palavraNova.replace('√±','n');
+		palavraNova = palavraNova.replace('√ë','N');
 		return palavraNova;
 	}
 	//meudeus quanta coisa
 	
-	//Quest„o 14
+	//Quest√£o 14
 	public static String alinhaADireita(String palavra, int quant){
 		if(palavra.length() > quant){
 			return palavra;
@@ -80,7 +80,7 @@ public class StringUtils {
 		}
 	}
 
-	// Quest„o 15
+	// Quest√£o 15
 	public static String replica(String frase, int rep) {
 		String fraseRep = "";
 
@@ -91,7 +91,7 @@ public class StringUtils {
 		return fraseRep;
 	}
 
-	// quest„o 16
+	// quest√£o 16
 	public static int conta(String palavra, char letra) {
 		int quant = 0;
 		for (int i = 0; i < palavra.length(); i++) {
@@ -102,7 +102,7 @@ public class StringUtils {
 		return quant;
 	}
 
-	// quest„o 17
+	// quest√£o 17
 	public static String reverte(String palavra) {
 		String revertido = "";
 		for (int i = palavra.length() - 1; i >= 0; i--)
@@ -110,8 +110,8 @@ public class StringUtils {
 		return revertido;
 	}
 
-	// Quest„o 18
-	// sobrecarga de mÈtodos com equals
+	// Quest√£o 18
+	// sobrecarga de m√©todos com equals
 	public static boolean comparaString(String a, String b) {
 		if (a.equals(b)) {
 			return true;
@@ -136,7 +136,7 @@ public class StringUtils {
 		}
 	}
 
-	// sobrecarga de mÈtodos com equalsIgnoreCase
+	// sobrecarga de m√©todos com equalsIgnoreCase
 	public static boolean comparaStringIgnoreCase(String a, String b) {
 		if (a.equalsIgnoreCase(b)) {
 			return true;
@@ -163,7 +163,7 @@ public class StringUtils {
 		}
 	}
 
-	// Quest„o 19
+	// Quest√£o 19
 	public static int quantasVezes(String arg1, String arg2) {
 		int quant = 0;
 		int i = 0;
@@ -177,7 +177,7 @@ public class StringUtils {
 		return quant;
 	}
 
-	// Quest„o 20
+	// Quest√£o 20
 	public static String retiraVogais(String arg) {
 		String semVogal = "";
 		for (int i = 0; i < arg.length(); i++) {
@@ -213,9 +213,9 @@ public class StringUtils {
 			return false;
 	}
 
-	// fim da quest„o, havia duas solicitaÁıes na mesma quest„o
+	// fim da quest√£o, havia duas solicita√ß√µes na mesma quest√£o
 
-	// Quest„o 22
+	// Quest√£o 22
 	public static boolean palindromaComEspaco(String arg) {
 		String contrario = "";
 		for (int i = (arg.length() - 1); i >= 0; i--)
@@ -238,7 +238,7 @@ public class StringUtils {
 			return false;
 	}
 
-	// Quest„o 23
+	// Quest√£o 23
 	public static String soundex(String arg) {
 		String soundex = "";
 		arg = arg.toUpperCase();
@@ -249,7 +249,7 @@ public class StringUtils {
 			if (arg.charAt(i) == 'B' || arg.charAt(i) == 'P'
 					|| arg.charAt(i) == 'F' || arg.charAt(i) == 'V') {
 				soundex += '1';
-			} else if (arg.charAt(i) == 'C' || arg.charAt(i) == '«'
+			} else if (arg.charAt(i) == 'C' || arg.charAt(i) == '√á'
 					|| arg.charAt(i) == 'S' || arg.charAt(i) == 'G'
 					|| arg.charAt(i) == 'J' || arg.charAt(i) == 'K'
 					|| arg.charAt(i) == 'Q' || arg.charAt(i) == 'X'
@@ -276,7 +276,7 @@ public class StringUtils {
 		return soundex;
 	}
 
-	// quest„o 30
+	// quest√£o 30
 	public static String alfabetoCompleto(String palavra) {
 		String alfabetoCompleto = "";
 		palavra = palavra.toLowerCase();
@@ -290,7 +290,7 @@ public class StringUtils {
 		return alfabetoCompleto;
 	}
 	
-	//Quest„o 35
+	//Quest√£o 35
 	public static boolean quasePalindroma(String palavra){
 		String inverso = "";
 		int cont = 0;
