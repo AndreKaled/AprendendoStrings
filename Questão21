@@ -1,5 +1,5 @@
 /*
- * AndrÈ Kaled Duarte - quest„o 21
+ * Andr√© Kaled Duarte - quest√£o 21
  * Data: 18/07/2022 
  * */
 import java.util.Scanner;
@@ -31,18 +31,18 @@ public class PalavrasCruzadas {
 			for(int i = 0; i < quant; i++){
 				System.out.println();
 				System.out.println("Sua vez jogador " +(i+1) +"!");
-				System.out.println("Digite uma palavra para ver a pontuaÁ„o!");
+				System.out.println("Digite uma palavra para ver a pontua√ß√£o!");
 				System.out.print("--> ");
 				String a = s.nextLine();
 				ponto[i] += pontuacaoDaPalavra(a);
-				System.out.println("Sua pontuaÁ„o È: " + pontuacaoDaPalavra(a));
+				System.out.println("Sua pontua√ß√£o √©: " + pontuacaoDaPalavra(a));
 				System.out.print("aperte enter para continuar...");
 				s.nextLine();
 			}
 			cont++;
 			System.out.println();
 			decora();
-			System.out.println("|--- PontuaÁ„o do jogo ---|");
+			System.out.println("|--- Pontua√ß√£o do jogo ---|");
 			decora();
 			for(int i = 0; i < quant; i++){
 				System.out.println("Jogador " +(i+1) +" -> " +ponto[i]);
@@ -54,7 +54,7 @@ public class PalavrasCruzadas {
 			System.out.print("aperte enter para continuar...");
 			s.nextLine();
 		}
-		System.out.println("O vencedor È o jogador " +jogadorMaior +" com a pontuaÁ„o total de " +maior);
+		System.out.println("O vencedor √© o jogador " +jogadorMaior +" com a pontua√ß√£o total de " +maior);
 	}
 
 	public static int pontuacaoDaPalavra(String palavra) {
