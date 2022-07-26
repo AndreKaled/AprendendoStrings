@@ -10,10 +10,11 @@ public class StringAminoAcidos {
 	public StringAminoAcidos(StringRNA obj) {
 		String amino = "";
 		String RNA = obj.getRNA();
-		if(RNA.length()%3!=0){
-			for(int i = 0; RNA.length()%3 != 0; i++)
+		if (RNA.length() % 3 != 0) {
+			for (int i = 0; RNA.length() % 3 != 0; i++)
 				RNA += " ";
 		}
+		
 		for (int cont = 0; cont < RNA.length(); cont += 3) {
 			if (RNA.substring(cont, (cont + 3)).equals("GAU")
 					|| RNA.substring(cont, (cont + 3)).equals("GAC"))
@@ -51,7 +52,7 @@ public class StringAminoAcidos {
 					|| RNA.substring(cont, (cont + 3)).equals("CAG"))
 				amino += "Q";
 			else if (RNA.substring(cont, (cont + 3)).equals("CAU")
-					|| RNA.substring(cont,(cont + 3)).equals("CAC"))
+					|| RNA.substring(cont, (cont + 3)).equals("CAC"))
 				amino += "H";
 			else if (RNA.substring(cont, (cont + 3)).equals("AUU")
 					|| RNA.substring(cont, (cont + 3)).equals("AUA")
@@ -103,12 +104,13 @@ public class StringAminoAcidos {
 		}
 		setAminoAcidos(amino);
 	}
-	
-	//metodos de acesso
-	public void setAminoAcidos(String aminoAcidos){
+
+	// metodos de acesso
+	public void setAminoAcidos(String aminoAcidos) {
 		this.aminoAcidos = aminoAcidos;
 	}
-	public String getAminoAcidos(){
+
+	public String getAminoAcidos() {
 		return aminoAcidos;
 	}
 }
