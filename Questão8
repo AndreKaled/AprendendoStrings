@@ -1,5 +1,5 @@
 /*
- * AndrÈ Kaled Duarte - Quest„o 8
+ * Andr√© Kaled Duarte - Quest√£o 8
  * Data: 20/07/2022 19:13
  * */
 public class MudaString {
@@ -8,8 +8,8 @@ public class MudaString {
 
 		String nome = "Dan Gusfield";
 		// nome.charAt(3) = '+';
-		// O metodo charAt() È um mÈtodo que retorna o caractere passado na
-		// posiÁ„o do argumento, n„o tendo utilidade para
+		// O metodo charAt() √© um m√©todo que retorna o caractere passado na
+		// posi√ß√£o do argumento, n√£o tendo utilidade para
 		// alterar a String
 		System.out.println(nome);
 	}
