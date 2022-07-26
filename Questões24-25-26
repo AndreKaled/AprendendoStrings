@@ -1,5 +1,5 @@
 /*
- * AndrÈ Kaled Duarte - Questıes 24, 25 e 26
+ * Andr√© Kaled Duarte - Quest√µes 24, 25 e 26
  * Data: 18/07/2022
  * */
 public class StringDNA {
@@ -79,9 +79,9 @@ public class StringDNA {
 		return DNA;
 	}
 
-	// fim da quest„o 24
+	// fim da quest√£o 24
 
-	// Quest„o 25
+	// Quest√£o 25
 	public StringDNA reversoComplementar() {
 		String complementar = "";
 		String rc = "";
@@ -102,17 +102,17 @@ public class StringDNA {
 		for (int i = (complementar.length() - 1); i >= 0; i--) {
 			rc += complementar.charAt(i);
 		}
-		StringDNA reversoComplementar = new StringDNA(rc); // sim, isso È
-															// possÌvel e eu amo
-															// programaÁ„o e
+		StringDNA reversoComplementar = new StringDNA(rc); // sim, isso √©
+															// poss√≠vel e eu amo
+															// programa√ß√£o e
 															// suas surpresas
 		return reversoComplementar;
 	}
 
-	// Quest„o 26
+	// Quest√£o 26
 	// ARRUMAR
-	public int compara(String DNA2) {// com instancia de StringDNA d· problema,
-										// ent„o deixei como String
+	public int compara(String DNA2) {// com instancia de StringDNA d√° problema,
+										// ent√£o deixei como String
 		int acumulador = 0;
 		int j = 0;
 		for (int i = 0; i < DNA.length(); i++) {
