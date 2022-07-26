@@ -1,6 +1,6 @@
 /*
- * André Kaled Duarte - Questões 27, 28, 31 e 32
- * Data de publicação: 14/07/2022 
+ * AndrÃ© Kaled Duarte - QuestÃ£o 33
+ * Data de publicaÃ§Ã£o: 14/07/2022 
  * */
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ public class CodigoMorse {
 		Scanner s = new Scanner(System.in);
 		while (1 == 1) {
 			System.out.println("[1] frase.\n[2] morse.\n[3] fim...");
-			System.out.print("Digite sua opção: ");
+			System.out.print("Digite sua opÃ§Ã£o: ");
 			int op = s.nextInt();
 			s.nextLine();
 			if (op == 1) {
@@ -17,12 +17,12 @@ public class CodigoMorse {
 				String frase = s.nextLine();
 				String a = codificaMorse(frase);
 				System.out.println("Morse -----> " + a);
-				System.out.println("Tradução --> " + decodificaMorse(a));
+				System.out.println("TraduÃ§Ã£o --> " + decodificaMorse(a));
 			} else if (op == 2) {
-				System.out.print("Digite o código:");
+				System.out.print("Digite o cÃ³digo:");
 				String a = s.nextLine();
 				System.out.println("Morse -----> " + a);
-				System.out.println("Tradução --> " + decodificaMorse(a));
+				System.out.println("TraduÃ§Ã£o --> " + decodificaMorse(a));
 			} else {
 				break;
 			}
@@ -90,7 +90,7 @@ public class CodigoMorse {
 			} else if (frase.charAt(i) == ',') {
 				codigo = "--..--";
 			} else if(frase.charAt(i) == ' '){
-				codigo = "/";//espaço em morse
+				codigo = "/";//espaÃ§o em morse
 			} else{
 				codigo = "?";
 			}
