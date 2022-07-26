@@ -1,0 +1,27 @@
+/*
+ * André Kaled Duarte - Questão 5 de String
+ * Data: 20/07/2022 6:00
+ * */
+import java.util.Scanner;
+
+public class RemoveEspaco {
+
+	public static void main(String[] args) {
+	Scanner s = new Scanner(System.in);
+	System.out.print("Digite algo: ");
+	String algo = s.nextLine();
+	System.out.println("Removendo os espaços adicionais...");
+	String algoSemEspaco = "";
+	for(int i = 0; i < algo.length()-1; i++){
+		if(algo.charAt(i)==' '&&algo.charAt(i+1)==' '){
+			
+		}else{
+			algoSemEspaco += algo.charAt(i);
+		}
+	}
+	algoSemEspaco += algo.charAt(algo.length()-1);
+	algoSemEspaco = algoSemEspaco.trim();
+	System.out.println("Espaços adicionais removidos!\nResultado:" +algoSemEspaco);
+	}
+
+}

@@ -1,0 +1,44 @@
+/*
+ * André Kaled Duarte - Questão 12
+ * Data: 21/7/2022
+ * */
+import java.util.Scanner;
+public class Nomes {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.print("Digite seu nome completo: ");
+		String nome = s.nextLine();
+		System.out.println("Iniciais: " +rubrica(nome));
+		System.out.println("Assinatura: " +assinatura(nome));
+	}
+
+	public static String rubrica(String nome){
+		String iniciais = nome.substring(0,1);
+		for(int i = 0; i < nome.length(); i++){
+			if(nome.charAt(i) == ' '){
+				iniciais = iniciais.concat(nome.substring(i+1,i+2));
+			}
+		}
+		iniciais = iniciais.toLowerCase();
+		return iniciais;
+	}
+	
+	public static String assinatura(String nome){
+		String assinatura1 = nome.substring(0,1);;
+		String assinatura2 = "";
+		String assinatura3 = "";
+		for(int i = 0; i < nome.length(); i++){
+			if(nome.charAt(i) == ' '&&assinatura2.equals("")){
+				assinatura2 = nome.substring(i+1,i+2);
+			}else if(nome.charAt(i) == ' '&&assinatura3.equals("")){
+				assinatura3 =  nome.substring(i+1);
+			}
+		}
+		String assinatura = assinatura1.concat(".");
+		assinatura += assinatura2.concat(".");
+		assinatura = assinatura.toUpperCase();
+		assinatura = assinatura.concat(assinatura3);
+		return assinatura;
+	}
+}
