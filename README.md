@@ -1,2 +1,1 @@
-# Olá, seja bem-vindo! 
-# Aqui aprendemos Java e Orientação a Objetos através de listas de exercícios c:
+# Interface Gráfica com a Linguagem Java
