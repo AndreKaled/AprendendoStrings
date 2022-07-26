@@ -1,6 +1,6 @@
 /*
- * AndrÈ Kaled Duarte - Questıes 27, 28, 31, 32 e 34.
- * Data de publicaÁ„o: 14/07/2022 
+ * Andr√© Kaled Duarte - Quest√µes 27, 28, 31, 32 e 34.
+ * Data de publica√ß√£o: 14/07/2022 
  * obs: foi realizado antes da data mas completado no mesmo.
  * */
 
@@ -21,7 +21,7 @@ public class Criptografia {
 
 			// caso a letra seja minuscula
 			if (c > 96 && c < 123) {
-				// soma 13 para que percorra 13 letras a frente (de A atÈ Z)
+				// soma 13 para que percorra 13 letras a frente (de A at√© Z)
 				code = (char) (c + 13);
 				if ((char) (code) > 122) {
 					// caso seja maior que z, retorna 26 letras
@@ -34,7 +34,7 @@ public class Criptografia {
 				// zera a String para transferencia de concat
 			} else if (c > 64 && c < 91) {// caso seja letra maiuscula
 
-				// soma 13 para que percorra 13 letras a frente (de A atÈ Z)
+				// soma 13 para que percorra 13 letras a frente (de A at√© Z)
 				code = (char) (c + 13);
 				if ((char) (code) > 90) {
 					// caso seja maior que z, retorna 26 letras
@@ -63,7 +63,7 @@ public class Criptografia {
 		return codificaRot13(pala);
 	}
 
-	// quest„o 28
+	// quest√£o 28
 	// metodo para codificar
 	public static String codificaCesar(String frase, int chave) {
 		char c;
@@ -122,7 +122,7 @@ public class Criptografia {
 		return descript;
 	}
 
-	// quest„o 31 O algoritmo das pontas
+	// quest√£o 31 O algoritmo das pontas
 	public static String codificaPontas(String palavra) {
 		String codigo = "";
 		int tamMax = palavra.length() - 1;
@@ -160,7 +160,7 @@ public class Criptografia {
 				// recebe os caracteres impares, ou pares em logica de vetor
 				a += codigo.charAt(i);
 			} else {
-				// os pares, ou impares em lÛgica de vetor
+				// os pares, ou impares em l√≥gica de vetor
 				b += codigo.charAt(i);
 			}
 		}
@@ -170,11 +170,11 @@ public class Criptografia {
 		return decodificado = a.concat(c);
 	}
 
-	// Quest„o 32
+	// Quest√£o 32
 	static int M;
 
 	public static String codificaFatias(String palavra, int N) {
-		// incrementando espaÁo caso a quant. n„o seja divisÌvel por N
+		// incrementando espa√ßo caso a quant. n√£o seja divis√≠vel por N
 		while (palavra.length() % N != 0) {
 			// incrementando
 			palavra = palavra.concat(" ");
@@ -184,7 +184,7 @@ public class Criptografia {
 		// variavel do comprimento da string dividido por N
 		M = (palavra.length() / N);
 
-		// variavel para concatenaÁ„o da criptogafia
+		// variavel para concatena√ß√£o da criptogafia
 		String criptConcatenada = "";
 		int p = 0;
 
@@ -220,7 +220,7 @@ public class Criptografia {
 		codificaFatias(codificaFatias(palavra, fatias), M);
 	}
 
-	// Quest„o 34
+	// Quest√£o 34
 	public static String codificaCesarMelhorado(String frase, String chave) {
 		String codificado = "";
 		char letra;
@@ -331,7 +331,7 @@ public class Criptografia {
 		}
 		return codificado;
 	}
-	//decodificaÁ„o 
+	//decodifica√ß√£o 
 	public static String decodificaCesarMelhorado(String frase, String chave) {
 		String decodificado = "";
 		char letra;
