@@ -9,7 +9,7 @@ public class NumerosEmString {
 		Scanner s = new Scanner(System.in);
 
 		// leitura de dados, no caso um inteiro
-		System.out.print("Digite um nÃºmero: ");
+		System.out.print("Digite um número: ");
 		num = s.nextInt();
 
 		// passando o inteiro para String com valueOf
@@ -29,7 +29,7 @@ public class NumerosEmString {
 				System.out.print("Dois");
 			}
 			if (c == '3') {
-				System.out.print("TrÃªs");
+				System.out.print("Três");
 			}
 			if (c == '4') {
 				System.out.print("Quatro");
