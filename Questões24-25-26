@@ -1,0 +1,138 @@
+/*
+ * André Kaled Duarte - Questões 24, 25 e 26
+ * Data: 18/07/2022
+ * */
+public class StringDNA {
+	private static String DNA;
+
+	// construtor da classe
+	public StringDNA(String palavra) {
+		String valido = new String("");
+		palavra = palavra.toUpperCase();
+		// validando o argumento para passar ao DNA
+		for (int i = 0; i < palavra.length(); i++) {
+			if (palavra.charAt(i) == 'A' || palavra.charAt(i) == 'C'
+					|| palavra.charAt(i) == 'G' || palavra.charAt(i) == 'T') {
+				valido += palavra.charAt(i);
+			}
+		}
+		setDNA(valido);
+	}
+
+	// metodo toString
+	public String toString() {
+		return DNA;
+	}
+
+	// metodo charAT
+	public char charAt(int arg) {
+		return DNA.charAt(arg);
+	}
+
+	// metodos quantos
+	public static int quantosA() {
+		int cont = 0;
+		for (int i = 0; i < DNA.length(); i++) {
+			if (DNA.charAt(i) == 'A')
+				cont++;
+		}
+		return cont;
+	}
+
+	public static int quantosC() {
+		int cont = 0;
+		for (int i = 0; i < DNA.length(); i++) {
+			if (DNA.charAt(i) == 'C')
+				cont++;
+		}
+		return cont;
+	}
+
+	public static int quantosG() {
+		int cont = 0;
+		for (int i = 0; i < DNA.length(); i++) {
+			if (DNA.charAt(i) == 'G')
+				cont++;
+		}
+		return cont;
+	}
+
+	public static int quantosT() {
+		int cont = 0;
+		for (int i = 0; i < DNA.length(); i++) {
+			if (DNA.charAt(i) == 'T')
+				cont++;
+		}
+		return cont;
+	}
+
+	// metodo length
+	public int length() {
+		return DNA.length();
+	}
+
+	public void setDNA(String DNA) {
+		this.DNA = DNA;
+	}
+
+	public String getDNA() {
+		return DNA;
+	}
+
+	// fim da questão 24
+
+	// Questão 25
+	public StringDNA reversoComplementar() {
+		String complementar = "";
+		String rc = "";
+		for (int i = 0; i < DNA.length(); i++) {
+			if (DNA.charAt(i) == 'A') {
+				complementar += 'T';
+			}
+			if (DNA.charAt(i) == 'T') {
+				complementar += 'A';
+			}
+			if (DNA.charAt(i) == 'C') {
+				complementar += 'G';
+			}
+			if (DNA.charAt(i) == 'G') {
+				complementar += 'C';
+			}
+		}
+		for (int i = (complementar.length() - 1); i >= 0; i--) {
+			rc += complementar.charAt(i);
+		}
+		StringDNA reversoComplementar = new StringDNA(rc); // sim, isso é
+															// possível e eu amo
+															// programação e
+															// suas surpresas
+		return reversoComplementar;
+	}
+
+	// Questão 26
+	// ARRUMAR
+	public int compara(String DNA2) {// com instancia de StringDNA dá problema,
+										// então deixei como String
+		int acumulador = 0;
+		int j = 0;
+		for (int i = 0; i < DNA.length(); i++) {
+			if (DNA.charAt(i) == DNA2.charAt(j)) {
+				acumulador += 3;
+			} else if (DNA.charAt(i) == 'A' && DNA2.charAt(j) == 'T'
+					|| DNA.charAt(i) == 'T' && DNA2.charAt(j) == 'A') {
+				acumulador++;
+			} else if (DNA.charAt(i) == 'C' && DNA2.charAt(j) == 'G'
+					|| DNA.charAt(i) == 'G' && DNA2.charAt(j) == 'C') {
+				acumulador++;
+			}
+			// incrementando no indice do argumento recebido para verificar qual
+			// acaba primeiro a busca
+			j++;
+			System.out.println(acumulador);
+			if (j == DNA2.length()) {
+				break;
+			}
+		}
+		return acumulador;
+	}
+}
