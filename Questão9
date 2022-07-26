@@ -9,7 +9,7 @@ public class TesteRetornoLength {
 		System.out.println("Tamanho da String a: " +a.length());//retorna 20
 		System.out.println("Tamanho da String b: " +b.length());//retorna 2
 		System.out.println("Tamanho da String c: " +c.length());//retorna 0
-		//portanto a resposta correta é a letra a
+		//portanto a resposta correta Ã© a letra a
 	}
 
 }
