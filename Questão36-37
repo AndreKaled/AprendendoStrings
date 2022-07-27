@@ -1,5 +1,5 @@
 /*
- * AndrÈ Kaled Duarte - Quest„o 36 e 37
+ * Andr√© Kaled Duarte - Quest√£o 36 e 37
  * Data: 25/07/2022
  * */
 public class StringAminoAcidos {
@@ -118,7 +118,7 @@ public class StringAminoAcidos {
 		int pontos = 0;
 		String aminoComp = arg.getAminoAcidos();
 		for (int i = 0; i < aminoAcidos.length() && i < aminoComp.length(); i++) {
-			// calculando a pontuaÁ„o conforme as combinaÁıes de strings
+			// calculando a pontua√ß√£o conforme as combina√ß√µes de strings
 			// TUDO A
 			if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'A')
 				pontos += 4;
