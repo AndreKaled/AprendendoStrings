@@ -1,5 +1,5 @@
 /*
- * André Kaled Duarte - Questões 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 30 e 35
+ * André Kaled Duarte - Questões 13, 14, 15, 16, 17, 18, 19, 20, 22, 23, 30, 35 e 38
  * Data de publicação: 14/07/2022 
  * obs: foi realizado antes da data mas completado no mesmo.
  * */
@@ -305,5 +305,95 @@ public class StringUtils {
 			return true;
 		else
 			return false;
+	}
+	
+	//Questão 38
+	public static boolean éAnagrama(String a, String b){
+		int verificaA = 0;
+		int verificaB = 0;
+		a = desacentua(a);
+		b = desacentua(b);
+		a = a.toUpperCase();
+		b = b.toUpperCase();
+		//pontuando a primeira String 
+		verificaA = conta(a,'A');
+		verificaA = conta(a,'B');
+		verificaA = conta(a,'C');
+		verificaA = conta(a,'D');
+		verificaA = conta(a,'E');
+		verificaA = conta(a,'F');
+		verificaA = conta(a,'G');
+		verificaA = conta(a,'H');
+		verificaA = conta(a,'I');
+		verificaA = conta(a,'J');
+		verificaA = conta(a,'K');
+		verificaA = conta(a,'L');
+		verificaA = conta(a,'M');
+		verificaA = conta(a,'N');
+		verificaA = conta(a,'O');
+		verificaA = conta(a,'P');
+		verificaA = conta(a,'Q');
+		verificaA = conta(a,'R');
+		verificaA = conta(a,'S');
+		verificaA = conta(a,'T');
+		verificaA = conta(a,'U');
+		verificaA = conta(a,'V');
+		verificaA = conta(a,'W');
+		verificaA = conta(a,'X');
+		verificaA = conta(a,'Y');
+		verificaA = conta(a,'Z');
+		verificaA = conta(a,'0');
+		verificaA = conta(a,'1');
+		verificaA = conta(a,'2');
+		verificaA = conta(a,'3');
+		verificaA = conta(a,'4');
+		verificaA = conta(a,'5');
+		verificaA = conta(a,'6');
+		verificaA = conta(a,'7');
+		verificaA = conta(a,'8');
+		verificaA = conta(a,'9');
+		
+		//pontuando a segunda String
+		verificaB = conta(b,'A');
+		verificaB = conta(b,'B');
+		verificaB = conta(b,'C');
+		verificaB = conta(b,'D');
+		verificaB = conta(b,'E');
+		verificaB = conta(b,'F');
+		verificaB = conta(b,'G');
+		verificaB = conta(b,'H');
+		verificaB = conta(b,'I');
+		verificaB = conta(b,'J');
+		verificaB = conta(b,'K');
+		verificaB = conta(b,'L');
+		verificaB = conta(b,'M');
+		verificaB = conta(b,'N');
+		verificaB = conta(b,'O');
+		verificaB = conta(b,'P');
+		verificaB = conta(b,'Q');
+		verificaB = conta(b,'R');
+		verificaB = conta(b,'S');
+		verificaB = conta(b,'T');
+		verificaB = conta(b,'U');
+		verificaB = conta(b,'V');
+		verificaB = conta(b,'W');
+		verificaB = conta(b,'X');
+		verificaB = conta(b,'Y');
+		verificaB = conta(b,'Z');
+		verificaB = conta(b,'0');
+		verificaB = conta(b,'1');
+		verificaB = conta(b,'2');
+		verificaB = conta(b,'3');
+		verificaB = conta(b,'4');
+		verificaB = conta(b,'5');
+		verificaB = conta(b,'6');
+		verificaB = conta(b,'7');
+		verificaB = conta(b,'8');
+		verificaB = conta(b,'9');
+		if(verificaA==verificaB){
+			return true;
+		}else{
+			return false;
+		}
 	}
 }
