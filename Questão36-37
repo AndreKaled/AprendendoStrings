@@ -1,0 +1,949 @@
+/*
+ * André Kaled Duarte - Questão 36 e 37
+ * Data: 25/07/2022
+ * */
+public class StringAminoAcidos {
+	// variavel para encapsular os aminoacidos do dna
+	private String aminoAcidos;
+
+	// construtor da classe com argumento do tipo StringRNA
+	public StringAminoAcidos(StringRNA obj) {
+		String amino = "";
+		String RNA = obj.getRNA();
+		if (RNA.length() % 3 != 0) {
+			for (int i = 0; RNA.length() % 3 != 0; i++)
+				RNA += " ";
+		}
+
+		for (int cont = 0; cont < RNA.length(); cont += 3) {
+			if (RNA.substring(cont, (cont + 3)).equals("GAU")
+					|| RNA.substring(cont, (cont + 3)).equals("GAC"))
+				amino += "D";
+			else if (RNA.substring(cont, (cont + 3)).equals("GAA")
+					|| RNA.substring(cont, (cont + 3)).equals("GAG"))
+				amino += "E";
+			else if (RNA.substring(cont, (cont + 3)).equals("GCU")
+					|| RNA.substring(cont, (cont + 3)).equals("GCC")
+					|| RNA.substring(cont, (cont + 3)).equals("GCA")
+					|| RNA.substring(cont, (cont + 3)).equals("GCG"))
+				amino += "A";
+			else if (RNA.substring(cont, (cont + 3)).equals("CGU")
+					|| RNA.substring(cont, (cont + 3)).equals("CGC")
+					|| RNA.substring(cont, (cont + 3)).equals("CGA")
+					|| RNA.substring(cont, (cont + 3)).equals("CGG")
+					|| RNA.substring(cont, (cont + 3)).equals("AGA")
+					|| RNA.substring(cont, (cont + 3)).equals("AGG"))
+				amino += "R";
+			else if (RNA.substring(cont, (cont + 3)).equals("AAU")
+					|| RNA.substring(cont, (cont + 3)).equals("AAC"))
+				amino += "N";
+			else if (RNA.substring(cont, (cont + 3)).equals("UGU")
+					|| RNA.substring(cont, (cont + 3)).equals("UGC"))
+				amino += "C";
+			else if (RNA.substring(cont, (cont + 3)).equals("UUU")
+					|| RNA.substring(cont, (cont + 3)).equals("UUC"))
+				amino += "F";
+			else if (RNA.substring(cont, (cont + 3)).equals("GGA")
+					|| RNA.substring(cont, (cont + 3)).equals("GGC")
+					|| RNA.substring(cont, (cont + 3)).equals("GGU")
+					|| RNA.substring(cont, (cont + 3)).equals("GGG"))
+				amino += "G";
+			else if (RNA.substring(cont, (cont + 3)).equals("CAA")
+					|| RNA.substring(cont, (cont + 3)).equals("CAG"))
+				amino += "Q";
+			else if (RNA.substring(cont, (cont + 3)).equals("CAU")
+					|| RNA.substring(cont, (cont + 3)).equals("CAC"))
+				amino += "H";
+			else if (RNA.substring(cont, (cont + 3)).equals("AUU")
+					|| RNA.substring(cont, (cont + 3)).equals("AUA")
+					|| RNA.substring(cont, (cont + 3)).equals("AUC"))
+				amino += "I";
+			else if (RNA.substring(cont, (cont + 3)).equals("UUA")
+					|| RNA.substring(cont, (cont + 3)).equals("UUG")
+					|| RNA.substring(cont, (cont + 3)).equals("CUU")
+					|| RNA.substring(cont, (cont + 3)).equals("CUC")
+					|| RNA.substring(cont, (cont + 3)).equals("CUG")
+					|| RNA.substring(cont, (cont + 3)).equals("CUA"))
+				amino += "L";
+			else if (RNA.substring(cont, (cont + 3)).equals("AAA")
+					|| RNA.substring(cont, (cont + 3)).equals("AAG"))
+				amino += "K";
+			else if (RNA.substring(cont, (cont + 3)).equals("AUG"))
+				amino += "M";
+			else if (RNA.substring(cont, (cont + 3)).equals("CCU")
+					|| RNA.substring(cont, (cont + 3)).equals("CCA")
+					|| RNA.substring(cont, (cont + 3)).equals("CCC")
+					|| RNA.substring(cont, (cont + 3)).equals("CCG"))
+				amino += "P";
+			else if (RNA.substring(cont, (cont + 3)).equals("AGU")
+					|| RNA.substring(cont, (cont + 3)).equals("AGC")
+					|| RNA.substring(cont, (cont + 3)).equals("UCA")
+					|| RNA.substring(cont, (cont + 3)).equals("UCU")
+					|| RNA.substring(cont, (cont + 3)).equals("UCC")
+					|| RNA.substring(cont, (cont + 3)).equals("UCG"))
+				amino += "S";
+			else if (RNA.substring(cont, (cont + 3)).equals("UAU")
+					|| RNA.substring(cont, (cont + 3)).equals("UAC"))
+				amino += "X";
+			else if (RNA.substring(cont, (cont + 3)).equals("ACA")
+					|| RNA.substring(cont, (cont + 3)).equals("ACC")
+					|| RNA.substring(cont, (cont + 3)).equals("ACU")
+					|| RNA.substring(cont, (cont + 3)).equals("ACG"))
+				amino += "T";
+			else if (RNA.substring(cont, (cont + 3)).equals("UGG"))
+				amino += "W";
+			else if (RNA.substring(cont, (cont + 3)).equals("GUA")
+					|| RNA.substring(cont, (cont + 3)).equals("GUU")
+					|| RNA.substring(cont, (cont + 3)).equals("GUC")
+					|| RNA.substring(cont, (cont + 3)).equals("GUG"))
+				amino += "V";
+			else if (RNA.substring(cont, (cont + 3)).equals("UAA")
+					|| RNA.substring(cont, (cont + 3)).equals("UAG")
+					|| RNA.substring(cont, (cont + 3)).equals("UGA"))
+				amino += ".";
+		}
+		setAminoAcidos(amino);
+	}
+
+	// metodos de acesso
+	public void setAminoAcidos(String aminoAcidos) {
+		this.aminoAcidos = aminoAcidos;
+	}
+
+	public String getAminoAcidos() {
+		return aminoAcidos;
+	}
+
+	public int calculaAlinhamento(StringAminoAcidos arg) {
+		int pontos = 0;
+		String aminoComp = arg.getAminoAcidos();
+		for (int i = 0; i < aminoAcidos.length() && i < aminoComp.length(); i++) {
+			// calculando a pontuação conforme as combinações de strings
+			// TUDO A
+			if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'A')
+				pontos += 4;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'R'
+					|| aminoAcidos.charAt(i) == 'R'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'N'
+					|| aminoAcidos.charAt(i) == 'N'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'D'
+					|| aminoAcidos.charAt(i) == 'D'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'C'
+					|| aminoAcidos.charAt(i) == 'C'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'Q'
+					|| aminoAcidos.charAt(i) == 'Q'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'E'
+					|| aminoAcidos.charAt(i) == 'E'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'G'
+					|| aminoAcidos.charAt(i) == 'G'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'H'
+					|| aminoAcidos.charAt(i) == 'H'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'I'
+					|| aminoAcidos.charAt(i) == 'I'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'L'
+					|| aminoAcidos.charAt(i) == 'L'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'K'
+					|| aminoAcidos.charAt(i) == 'K'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'A')
+				pontos += 1;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'A' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'A')
+				pontos -= 0;
+			// TUDO R
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'R'
+					|| aminoAcidos.charAt(i) == 'R'
+					&& aminoComp.charAt(i) == 'R')
+				pontos += 5;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'N'
+					|| aminoAcidos.charAt(i) == 'N'
+					&& aminoComp.charAt(i) == 'R')
+				pontos += 0;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'D'
+					|| aminoAcidos.charAt(i) == 'D'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'C'
+					|| aminoAcidos.charAt(i) == 'C'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'Q'
+					|| aminoAcidos.charAt(i) == 'Q'
+					&& aminoComp.charAt(i) == 'R')
+				pontos += 1;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'E'
+					|| aminoAcidos.charAt(i) == 'E'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'G'
+					|| aminoAcidos.charAt(i) == 'G'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'H'
+					|| aminoAcidos.charAt(i) == 'H'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'I'
+					|| aminoAcidos.charAt(i) == 'I'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'L'
+					|| aminoAcidos.charAt(i) == 'L'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'K'
+					|| aminoAcidos.charAt(i) == 'K'
+					&& aminoComp.charAt(i) == 'R')
+				pontos += 2;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'R' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'R')
+				pontos -= 3;
+			// TUDO N
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'N')
+				pontos += 6;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'D'
+					|| aminoAcidos.charAt(i) == 'N'
+					&& aminoComp.charAt(i) == 'N')
+				pontos += 1;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'C'
+					|| aminoAcidos.charAt(i) == 'C'
+					&& aminoComp.charAt(i) == 'N')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'Q'
+					|| aminoAcidos.charAt(i) == 'Q'
+					&& aminoComp.charAt(i) == 'N')
+				pontos += 0;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'E'
+					|| aminoAcidos.charAt(i) == 'E'
+					&& aminoComp.charAt(i) == 'N')
+				pontos += 0;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'G'
+					|| aminoAcidos.charAt(i) == 'G'
+					&& aminoComp.charAt(i) == 'N')
+				pontos += 0;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'H'
+					|| aminoAcidos.charAt(i) == 'H'
+					&& aminoComp.charAt(i) == 'N')
+				pontos += 1;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'I'
+					|| aminoAcidos.charAt(i) == 'I'
+					&& aminoComp.charAt(i) == 'N')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'L'
+					|| aminoAcidos.charAt(i) == 'L'
+					&& aminoComp.charAt(i) == 'N')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'K'
+					|| aminoAcidos.charAt(i) == 'K'
+					&& aminoComp.charAt(i) == 'N')
+				pontos += 0;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'N')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'N')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'N')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'N')
+				pontos += 1;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'N')
+				pontos += 0;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'N')
+				pontos -= 4;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'N')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'N' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'N')
+				pontos -= 3;
+			// TUDO D
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'D')
+				pontos += 6;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'C'
+					|| aminoAcidos.charAt(i) == 'C'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'Q'
+					|| aminoAcidos.charAt(i) == 'Q'
+					&& aminoComp.charAt(i) == 'D')
+				pontos += 0;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'E'
+					|| aminoAcidos.charAt(i) == 'E'
+					&& aminoComp.charAt(i) == 'D')
+				pontos += 2;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'G'
+					|| aminoAcidos.charAt(i) == 'G'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'H'
+					|| aminoAcidos.charAt(i) == 'H'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'I'
+					|| aminoAcidos.charAt(i) == 'I'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'L'
+					|| aminoAcidos.charAt(i) == 'L'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 4;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'K'
+					|| aminoAcidos.charAt(i) == 'K'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'D')
+				pontos += 0;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 4;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'D' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'D')
+				pontos -= 3;
+			// TUDO C
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'C')
+				pontos += 9;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'Q'
+					|| aminoAcidos.charAt(i) == 'Q'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'E'
+					|| aminoAcidos.charAt(i) == 'E'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 4;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'G'
+					|| aminoAcidos.charAt(i) == 'G'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'H'
+					|| aminoAcidos.charAt(i) == 'H'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'I'
+					|| aminoAcidos.charAt(i) == 'I'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'L'
+					|| aminoAcidos.charAt(i) == 'L'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'K'
+					|| aminoAcidos.charAt(i) == 'K'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'C' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'C')
+				pontos -= 1;
+			// TUDO Q
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'Q')
+				pontos += 5;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'E'
+					|| aminoAcidos.charAt(i) == 'E'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos += 2;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'G'
+					|| aminoAcidos.charAt(i) == 'G'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'H'
+					|| aminoAcidos.charAt(i) == 'H'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos += 0;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'I'
+					|| aminoAcidos.charAt(i) == 'I'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'L'
+					|| aminoAcidos.charAt(i) == 'L'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'K'
+					|| aminoAcidos.charAt(i) == 'K'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos += 1;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos += 0;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'Q' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'Q')
+				pontos -= 2;
+			// TUDO E
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'E')
+				pontos += 5;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'G'
+					|| aminoAcidos.charAt(i) == 'G'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'H'
+					|| aminoAcidos.charAt(i) == 'H'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'I'
+					|| aminoAcidos.charAt(i) == 'I'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'L'
+					|| aminoAcidos.charAt(i) == 'L'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'K'
+					|| aminoAcidos.charAt(i) == 'K'
+					&& aminoComp.charAt(i) == 'E')
+				pontos += 1;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'E' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'E')
+				pontos -= 2;
+			// TUDO G
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'G')
+				pontos += 6;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'H'
+					|| aminoAcidos.charAt(i) == 'H'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'I'
+					|| aminoAcidos.charAt(i) == 'I'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 4;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'L'
+					|| aminoAcidos.charAt(i) == 'L'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 4;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'K'
+					|| aminoAcidos.charAt(i) == 'K'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'G' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'G')
+				pontos -= 3;
+			// TUDO H
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'H')
+				pontos += 8;
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'I'
+					|| aminoAcidos.charAt(i) == 'I'
+					&& aminoComp.charAt(i) == 'H')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'L'
+					|| aminoAcidos.charAt(i) == 'L'
+					&& aminoComp.charAt(i) == 'H')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'K'
+					|| aminoAcidos.charAt(i) == 'K'
+					&& aminoComp.charAt(i) == 'H')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'H')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'H')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'H')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'H')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'H')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'H')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'H')
+				pontos += 2;
+			else if (aminoAcidos.charAt(i) == 'H' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'H')
+				pontos -= 3;
+			// TUDO I
+			else if (aminoAcidos.charAt(i) == 'I' && aminoComp.charAt(i) == 'I')
+				pontos += 4;
+			else if (aminoAcidos.charAt(i) == 'I' && aminoComp.charAt(i) == 'L'
+					|| aminoAcidos.charAt(i) == 'L'
+					&& aminoComp.charAt(i) == 'I')
+				pontos += 2;
+			else if (aminoAcidos.charAt(i) == 'I' && aminoComp.charAt(i) == 'K'
+					|| aminoAcidos.charAt(i) == 'K'
+					&& aminoComp.charAt(i) == 'I')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'I' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'I')
+				pontos += 1;
+			else if (aminoAcidos.charAt(i) == 'I' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'I')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'I' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'I')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'I' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'I')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'I' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'I')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'I' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'I')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'I' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'I')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'I' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'I')
+				pontos += 3;
+			// TUDO L
+			else if (aminoAcidos.charAt(i) == 'L' && aminoComp.charAt(i) == 'L')
+				pontos += 4;
+			else if (aminoAcidos.charAt(i) == 'L' && aminoComp.charAt(i) == 'K'
+					|| aminoAcidos.charAt(i) == 'K'
+					&& aminoComp.charAt(i) == 'L')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'L' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'L')
+				pontos += 2;
+			else if (aminoAcidos.charAt(i) == 'L' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'L')
+				pontos += 0;
+			else if (aminoAcidos.charAt(i) == 'L' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'L')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'L' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'L')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'L' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'L')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'L' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'L')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'L' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'L')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'L' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'L')
+				pontos += 1;
+
+			// TUDO K
+			else if (aminoAcidos.charAt(i) == 'K' && aminoComp.charAt(i) == 'K')
+				pontos += 5;
+			else if (aminoAcidos.charAt(i) == 'K' && aminoComp.charAt(i) == 'M'
+					|| aminoAcidos.charAt(i) == 'M'
+					&& aminoComp.charAt(i) == 'K')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'K' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'K')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'K' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'K')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'K' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'K')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'K' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'K')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'K' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'K')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'K' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'K')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'K' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'K')
+				pontos -= 2;
+
+			// TUDO M
+			else if (aminoAcidos.charAt(i) == 'M' && aminoComp.charAt(i) == 'M')
+				pontos += 5;
+			else if (aminoAcidos.charAt(i) == 'M' && aminoComp.charAt(i) == 'F'
+					|| aminoAcidos.charAt(i) == 'F'
+					&& aminoComp.charAt(i) == 'M')
+				pontos -= 0;
+			else if (aminoAcidos.charAt(i) == 'M' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'M')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'M' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'M')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'M' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'M')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'M' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'M')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'M' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'M')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'M' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'M')
+				pontos += 1;
+			// TUDO F
+			else if (aminoAcidos.charAt(i) == 'F' && aminoComp.charAt(i) == 'F')
+				pontos += 6;
+			else if (aminoAcidos.charAt(i) == 'F' && aminoComp.charAt(i) == 'P'
+					|| aminoAcidos.charAt(i) == 'P'
+					&& aminoComp.charAt(i) == 'F')
+				pontos -= 4;
+			else if (aminoAcidos.charAt(i) == 'F' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'F')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'F' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'F')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'F' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'F')
+				pontos += 1;
+			else if (aminoAcidos.charAt(i) == 'F' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'F')
+				pontos += 3;
+			else if (aminoAcidos.charAt(i) == 'F' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'F')
+				pontos -= 1;
+			// TUDO P
+			else if (aminoAcidos.charAt(i) == 'P' && aminoComp.charAt(i) == 'P')
+				pontos += 7;
+			else if (aminoAcidos.charAt(i) == 'P' && aminoComp.charAt(i) == 'S'
+					|| aminoAcidos.charAt(i) == 'S'
+					&& aminoComp.charAt(i) == 'P')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'P' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'P')
+				pontos -= 1;
+			else if (aminoAcidos.charAt(i) == 'P' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'P')
+				pontos -= 4;
+			else if (aminoAcidos.charAt(i) == 'P' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'P')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'P' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'P')
+				pontos -= 2;
+			// TUDO S
+			else if (aminoAcidos.charAt(i) == 'S' && aminoComp.charAt(i) == 'S')
+				pontos -= 4;
+			else if (aminoAcidos.charAt(i) == 'S' && aminoComp.charAt(i) == 'T'
+					|| aminoAcidos.charAt(i) == 'T'
+					&& aminoComp.charAt(i) == 'S')
+				pontos += 1;
+			else if (aminoAcidos.charAt(i) == 'S' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'S')
+				pontos -= 3;
+			else if (aminoAcidos.charAt(i) == 'S' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'S')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'S' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'S')
+				pontos -= 2;
+			// TUDO T
+			else if (aminoAcidos.charAt(i) == 'T' && aminoComp.charAt(i) == 'T')
+				pontos += 5;
+			else if (aminoAcidos.charAt(i) == 'T' && aminoComp.charAt(i) == 'W'
+					|| aminoAcidos.charAt(i) == 'W'
+					&& aminoComp.charAt(i) == 'T')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'T' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'T')
+				pontos -= 2;
+			else if (aminoAcidos.charAt(i) == 'T' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'T')
+				pontos -= 0;
+			// TUDO W
+			else if (aminoAcidos.charAt(i) == 'W' && aminoComp.charAt(i) == 'W')
+				pontos += 11;
+			else if (aminoAcidos.charAt(i) == 'W' && aminoComp.charAt(i) == 'Y'
+					|| aminoAcidos.charAt(i) == 'Y'
+					&& aminoComp.charAt(i) == 'W')
+				pontos += 2;
+			else if (aminoAcidos.charAt(i) == 'W' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'W')
+				pontos -= 3;
+			// TUDO Y
+			else if (aminoAcidos.charAt(i) == 'W' && aminoComp.charAt(i) == 'W')
+				pontos += 7;
+			else if (aminoAcidos.charAt(i) == 'W' && aminoComp.charAt(i) == 'V'
+					|| aminoAcidos.charAt(i) == 'V'
+					&& aminoComp.charAt(i) == 'W')
+				pontos -= 1;
+			// TUDO V
+			else if (aminoAcidos.charAt(i) == 'V' && aminoComp.charAt(i) == 'V')
+				pontos += 4;
+		}
+		return pontos;
+	}
+}
