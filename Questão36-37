@@ -1,5 +1,5 @@
 /*
- * André Kaled Duarte - Questão 36 e 37
+ * André Kaled Duarte - Questão 36, 37 e 40
  * Data: 25/07/2022
  * */
 public class StringAminoAcidos {
@@ -945,5 +945,74 @@ public class StringAminoAcidos {
 				pontos += 4;
 		}
 		return pontos;
+	}
+	
+	//Questão 40
+	public String calculaConsenso(StringAminoAcidos a){
+		String consenso = "";
+		String comparaA = a.getAminoAcidos();
+		for(int i = 0; i < comparaA.length()&& i < aminoAcidos.length(); i++){
+			if(comparaA.charAt(i)==aminoAcidos.charAt(i)){
+				consenso += comparaA.charAt(i);
+			}else{
+				consenso += "?";
+			}
+		}
+		return consenso;
+	}
+	
+	public String calculaConsenso(StringAminoAcidos a, StringAminoAcidos b){
+		String consenso = "";
+		String comparaA = a.getAminoAcidos();
+		String comparaB = b.getAminoAcidos();
+		for(int i = 0; i < comparaA.length()&& i < comparaB.length() && i < aminoAcidos.length(); i++){
+			if(comparaA.charAt(i)==aminoAcidos.charAt(i)&&comparaB.charAt(i) == aminoAcidos.charAt(i)){
+				consenso += comparaA.charAt(i);
+			}else if(comparaA.charAt(i)==aminoAcidos.charAt(i)){
+				consenso += comparaA.charAt(i);
+			}else if(comparaB.charAt(i) == aminoAcidos.charAt(i)){
+				consenso += comparaB.charAt(i);
+			}else if(comparaA.charAt(i)==comparaB.charAt(i)){
+				consenso += comparaA.charAt(i);
+			}else{
+				consenso += "?";
+			}
+		}
+		return consenso;
+	}
+	
+	public String calculaConsenso(StringAminoAcidos a, StringAminoAcidos b, StringAminoAcidos c){
+		String consenso = "";
+		String comparaA = a.getAminoAcidos();
+		String comparaB = b.getAminoAcidos();
+		String comparaC = c.getAminoAcidos();
+		for(int i = 0; i < comparaA.length()&& i < comparaB.length() &&i < comparaC.length() &&i < aminoAcidos.length(); i++){
+			if(comparaA.charAt(i)==aminoAcidos.charAt(i)&&comparaB.charAt(i) == aminoAcidos.charAt(i)&&comparaC.charAt(i)==aminoAcidos.charAt(i)){
+				consenso += comparaA.charAt(i);
+			}else if(comparaA.charAt(i)==aminoAcidos.charAt(i)&&comparaB.charAt(i)==aminoAcidos.charAt(i)){
+				consenso += comparaA.charAt(i);
+			}else if(comparaB.charAt(i)==aminoAcidos.charAt(i)&&comparaC.charAt(i)==aminoAcidos.charAt(i)){
+				consenso += comparaB.charAt(i);
+			}else if(comparaA.charAt(i)==aminoAcidos.charAt(i)&&comparaC.charAt(i)==aminoAcidos.charAt(i)){
+				consenso += comparaA.charAt(i);
+			}else if(comparaA.charAt(i)==comparaB.charAt(i)&&comparaB.charAt(i)==comparaC.charAt(i)){
+				consenso += comparaA.charAt(i);
+			}else if(comparaA.charAt(i)==comparaB.charAt(i)&&comparaC.charAt(i)!=aminoAcidos.charAt(i)){
+				consenso += comparaA.charAt(i);
+			}else if(comparaB.charAt(i)==comparaC.charAt(i)&&comparaA.charAt(i)!=aminoAcidos.charAt(i)){
+				consenso += comparaB.charAt(i);
+			}else if(comparaC.charAt(i)==aminoAcidos.charAt(i)&&comparaA.charAt(i)!=comparaB.charAt(i)){
+				consenso += comparaC.charAt(i);
+			}else if(comparaA.charAt(i)==comparaC.charAt(i)&&comparaB.charAt(i)!=aminoAcidos.charAt(i)){
+				consenso += comparaA.charAt(i);
+			}else if(comparaA.charAt(i)==aminoAcidos.charAt(i)&&comparaB.charAt(i)!=comparaC.charAt(i)){
+				consenso += comparaA.charAt(i);
+			}else if(comparaB.charAt(i)==aminoAcidos.charAt(i)&&comparaA.charAt(i)!=comparaC.charAt(i)){
+				consenso += comparaB.charAt(i);
+			}else{
+				consenso += "?";
+			}
+		}
+		return consenso;
 	}
 }
